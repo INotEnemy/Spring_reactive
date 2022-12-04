@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sk_example_db
+    username: userHere
+    password: passHere
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+
+management:
+  endpoint:
+    env:
+#      showValues: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
